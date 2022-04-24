@@ -1,0 +1,66 @@
+//typescript basics
+
+//declare type
+let name: string;
+
+//any type
+let nameAny: any;
+
+//unkown type better than any
+let nameUnknown: unknown;
+
+let age: number;
+//"union" can be both
+let unionAge: number | string;
+
+let isStudent: boolean;
+
+//array
+let hobbies: string[];
+
+//tuples has to be specific types within array, in order
+let role: [number, string];
+
+//function
+function printName(name: string) {
+  console.log(name);
+}
+printName('James');
+
+//function type with void returns undefined
+let printNameVoid: (name: string) => void;
+
+//function type with never returns nothing
+let printNameNever: (name: string) => never;
+
+//objects
+type Person = {
+  name: string;
+  //optional with question mark
+  age?: number;
+};
+let person: Person = {
+  name: 'Piyush',
+  age: 22,
+};
+
+//array of the person object
+let lotsOfPeople: Person[];
+
+//aliases are types and interface
+//interface is similar to types
+interface PersonInterface {
+  name: string;
+  age?: number;
+}
+
+//extending another interface brings in properties (name, age)
+interface Guy extends PersonInterface {
+  profession: string;
+}
+
+//how to "extend" within types
+type X = PersonInterface & {
+  a: string;
+  b: number;
+};
